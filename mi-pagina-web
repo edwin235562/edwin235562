@@ -1,0 +1,106 @@
+mi-pagina-web/
+├── index.html
+├── styles.css
+└── scripts.js
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Página Web Personal</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Inicio</h2>
+            <p>Bienvenido a mi página personal. Aquí encontrarás información sobre mí y cómo contactarme.</p>
+        </section>
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <p>Hola, soy [Tu Nombre]. Soy [tu profesión o afición]. Me encanta [algo sobre ti].</p>
+        </section>
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Página Web Personal</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header, nav, main, footer {
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main section {
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('nav ul li a');
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
